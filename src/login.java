@@ -23,7 +23,7 @@ public login() {
 	panel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
 	// smooth label is to fix the horrible kerning
-	SmoothLabel welcomeText = new SmoothLabel("login");
+	SmoothLabel loginLabel = new SmoothLabel("login");
 	loginLabel.setFont(new Font("Sans-Serif", Font.BOLD, 40));
 	loginLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 

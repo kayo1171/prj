@@ -24,18 +24,10 @@ public register() {
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
     panel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
-    registerLabel = new JLabel("register") {
-        @Override
-        protected void paintComponent(Graphics g) {
-            Graphics2D g2 = (Graphics2D) g;
-            g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-            super.paintComponent(g2);
-        }
-    };
+    SmoothLabel registerLabel = new SmoothLabel("register");
     registerLabel.setFont(new Font("Sans-Serif", Font.BOLD, 40));
     registerLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-    // Create styled components
     usernameField = createStyledTextField();
     passwordField = createStyledTextField();
     usernameLabel = createStyledLabel("username");
