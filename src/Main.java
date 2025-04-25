@@ -1,8 +1,8 @@
 public class Main {
-    public static void main(String[] args) {
-//        new welcome();
+public static void main(String[] args) {
+	new welcome();
 //        new login();
 //        new register();
-        new databases();
-    }
+//        new databases();
+}
 }
