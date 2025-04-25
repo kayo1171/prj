@@ -1,8 +1,14 @@
 import javax.swing.*;
 
 public class databases {
-    private JTable databaseTables;
-    private JLabel selectedLabel;
-    private JLabel databasesLabel;
-    private JComboBox comboBox1;
+    private JTable table;
+    private JLabel appointmentsLabel;
+    private JTextField searchField;
+    private JLabel sortLabel;
+    private JButton homeButton;
+    private JButton deleteButton;
+    private JButton editButton;
+    private JButton makeAppointmentButton;
+    private JComboBox colComboBox;
+    private JLabel searchLabel;
 }
