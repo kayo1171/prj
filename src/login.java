@@ -71,18 +71,21 @@ public login() {
 				if (rs.next()) {
 					String storedHashedPassword = rs.getString("password");
 					if (BCrypt.checkpw(enteredPass, storedHashedPassword)) {
+						loginLabel.setFont(new Font("Sans-Serif", Font.BOLD, 16));
 						loginLabel.setForeground(Color.GREEN);
 						loginLabel.setText("Successful login!");
 						System.out.println("successful login");
-						new dashboard();
+						new databases();
 						dispose(); // closes window
 					} else {
 						loginLabel.setForeground(Color.RED);
+						loginLabel.setFont(new Font("Sans-Serif", Font.BOLD, 16));
 						loginLabel.setText("Incorrect password.");
 						System.out.println("wrong password");
 					}
 				} else {
 					loginLabel.setForeground(Color.RED);
+					loginLabel.setFont(new Font("Sans-Serif", Font.BOLD, 16));
 					loginLabel.setText("User not found.");
 					System.out.println("user not found");
 				}

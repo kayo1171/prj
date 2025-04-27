@@ -84,6 +84,41 @@ public static JPanel createStyledFormPanel(String[] labels, JTextField[] fields)
 	return panel;
 }
 
+public static void stylePopups() {
+	UIManager.put("OptionPane.background", new Color(255, 204, 204)); // Background color
+	UIManager.put("Panel.background", new Color(255, 204, 204)); // Background of panel inside
+	UIManager.put("Button.background", Color.WHITE); // Button background
+	UIManager.put("Button.foreground", Color.BLACK); // Button text color
+	UIManager.put("Button.font", new Font("Sans-Serif", Font.BOLD, 16)); // Button font
+	UIManager.put("OptionPane.messageFont", new Font("Sans-Serif", Font.PLAIN, 18)); // Message font
+	UIManager.put("OptionPane.buttonFont", new Font("Sans-Serif", Font.BOLD, 16)); // Button font
+	UIManager.put("OptionPane.messageForeground", Color.BLACK); // Message text color
+}
+
+public static void styleTable(JTable table) {
+	table.setRowHeight(30);
+	table.setFont(new Font("Sans-Serif", Font.PLAIN, 16));
+	table.setForeground(Color.BLACK);
+	table.setBackground(Color.WHITE);
+	table.setSelectionBackground(new Color(255, 153, 153));
+	table.setSelectionForeground(Color.BLACK);
+
+	table.getTableHeader().setFont(new Font("Sans-Serif", Font.BOLD, 18));
+	table.getTableHeader().setBackground(new Color(255, 153, 153));
+	table.getTableHeader().setForeground(Color.BLACK);
+	table.getTableHeader().setOpaque(false);
+
+	table.setGridColor(new Color(255, 204, 204));
+}
+
+public static void styleComboBox(JComboBox comboBox) {
+	comboBox.setFont(new Font("Sans-Serif", Font.PLAIN, 18));
+	comboBox.setBackground(Color.WHITE);
+	comboBox.setForeground(Color.BLACK);
+	comboBox.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+	comboBox.setFocusable(false);
+}
+
 public static class SmoothLabel extends JLabel {
 	public SmoothLabel(String text) {
 		super(text);

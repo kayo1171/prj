@@ -10,16 +10,14 @@ private JLabel topLabel;
 private JLabel searchLabel;
 private JLabel sortLabel;
 private JTextField searchField;
-private JButton homeButton;
 private JButton deleteButton;
 private JButton editButton;
 private JButton makeAppointmentButton;
 private JComboBox colComboBox;
-private JPanel panel;
 private javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel> sorter; // used for sorting using combobobx
 
 public databases() {
-	panel = new JPanel();
+	JPanel panel = new JPanel();
 	panel.setBackground(new Color(255, 204, 204));
 	panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 	panel.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
@@ -55,10 +53,12 @@ public databases() {
 	scrollPane.setPreferredSize(new Dimension(600, 300));
 
 	searchField = createStyledTextField();
-	homeButton = makeCustomButton("home");
+
+	searchField.setMaximumSize(new Dimension(500, 45));
+	searchField.setPreferredSize(new Dimension(500, 45));
 	deleteButton = makeCustomButton("delete");
 	editButton = makeCustomButton("edit");
-	makeAppointmentButton = makeCustomButton("add patient");
+	makeAppointmentButton = makeCustomButton("add");
 	colComboBox = new JComboBox(new String[]{"PatientID", "Name", "Age", "Phone", "BloodType"});
 
   // component adding
@@ -104,6 +104,9 @@ public databases() {
 
 	loadPatients();
 	buttonsFunctions();
+	stylePopups();
+	styleTable(table);
+	styleComboBox(colComboBox);
 
 	// sorting mechanism
 	colComboBox.addActionListener(e -> {

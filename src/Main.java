@@ -1,8 +1,12 @@
 public class Main {
 public static void main(String[] args) {
-//	new welcome();
+	new welcome();
 //        new login();
 //        new register();
-        new databases();
+//        new databases();
 }
 }
+
+// things to showcase
+// register
+// login

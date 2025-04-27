@@ -86,6 +86,7 @@ public register() {
 
                 if (affectedRows > 0) {
                     System.out.println("successful insertion");
+                    new databases();
                 } else {
                     System.out.println("unsuccessful insertion");
                 }
