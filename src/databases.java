@@ -16,6 +16,7 @@ private JButton editButton;
 private JButton makeAppointmentButton;
 private JComboBox colComboBox;
 private JPanel panel;
+private javax.swing.table.TableRowSorter<javax.swing.table.DefaultTableModel> sorter; // used for sorting using combobobx
 
 public databases() {
 	panel = new JPanel();
@@ -103,6 +104,31 @@ public databases() {
 
 	loadPatients();
 	buttonsFunctions();
+
+	// sorting mechanism
+	colComboBox.addActionListener(e -> {
+		if (sorter == null) return;
+
+		String selectedColumn = (String) colComboBox.getSelectedItem();
+		int columnIndex = table.getColumnModel().getColumnIndex(selectedColumn);
+
+		sorter.setSortKeys(java.util.List.of(new RowSorter.SortKey(columnIndex, SortOrder.ASCENDING)));
+		sorter.sort();
+	});
+
+	searchField.addKeyListener(new KeyAdapter() {
+		@Override
+		public void keyReleased(KeyEvent e) {
+			if (sorter == null) return;
+
+			String text = searchField.getText();
+			if (text.trim().isEmpty()) {
+				sorter.setRowFilter(null);
+			} else {
+				sorter.setRowFilter(RowFilter.regexFilter("(?i)" + text, 1)); // search by name, the regex makes it case insensitive
+			}
+		}
+	});
 }
 
 // loads patients from the database
@@ -128,6 +154,11 @@ private void loadPatients() {
 							rs.getString("BloodType")
 			};
 			model.addRow(row);
+
+			// allows to sort things with the combObox
+			sorter = new javax.swing.table.TableRowSorter<>(model);
+			table.setRowSorter(sorter);
+
 		}
 
 	} catch (SQLException e) {
@@ -137,9 +168,7 @@ private void loadPatients() {
 }
 
 //the button activities
-private void buttonsFunctions() {
-	makeAppointmentButton.addActionListener(e -> {
-		JTextField[] fields = new JTextField[4];
+private void buttonsFunctions() { makeAppointmentButton.addActionListener(e -> { JTextField[] fields = new JTextField[4];
 		String[] labels = {"name:", "age:", "phone:", "blood type:"};
 		JPanel form = createStyledFormPanel(labels, fields);
 
@@ -217,7 +246,7 @@ private void buttonsFunctions() {
 
 	deleteButton.addActionListener(e -> {
 		int selectedRow = table.getSelectedRow();
-		if (selectedRow == -1) {
+		if (selectedRow == -1) { // -1 means it's not selected
 			JOptionPane.showMessageDialog(this, "select patient to delete", "warning", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
