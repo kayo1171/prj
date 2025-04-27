@@ -70,6 +70,7 @@ public register() {
                             hashedPass == null || hashedPass.trim().isEmpty()
             ) {
                 registerLabel.setForeground(Color.RED);
+                registerLabel.setFont(new Font("Sans-Serif", Font.BOLD, 16));
                 registerLabel.setText("Insertion cannot contain null values.");
                 System.out.println("Insertion cannot contain null or empty values.");
                 return;
@@ -95,6 +96,7 @@ public register() {
             } catch (Exception ex) {
                 ex.printStackTrace();
                 registerLabel.setForeground(Color.RED);
+                registerLabel.setFont(new Font("Sans-Serif", Font.BOLD, 16));
                 registerLabel.setText("Database error.");
             }
         }
