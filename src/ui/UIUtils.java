@@ -66,14 +66,22 @@ public static JPanel createInputRow(JLabel label, JTextField field) {
 	return row;
 }
 
-public static JTable createStyledJTable() {
-	JTable table = new JTable();
-	return table;
-}
+public static JPanel createStyledFormPanel(String[] labels, JTextField[] fields) {
+	JPanel panel = new JPanel(new GridLayout(labels.length, 2, 10, 10));
+	panel.setBackground(new Color(255, 235, 238)); // light pink background
+	panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-public static JComboBox createStyledComboBox() {
-	JComboBox comboBox = new JComboBox();
-	return comboBox;
+	Font labelFont = new Font("Sans-Serif", Font.PLAIN, 18);
+
+	for (int i = 0; i < labels.length; i++) {
+		JLabel label = new JLabel(labels[i]);
+		label.setFont(labelFont);
+		panel.add(label);
+		fields[i] = createStyledTextField();
+		panel.add(fields[i]);
+	}
+
+	return panel;
 }
 
 public static class SmoothLabel extends JLabel {
