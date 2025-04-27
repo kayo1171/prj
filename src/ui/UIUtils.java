@@ -65,6 +65,17 @@ public static JPanel createInputRow(JLabel label, JTextField field) {
 	row.add(field);
 	return row;
 }
+
+public static JTable createStyledJTable() {
+	JTable table = new JTable();
+	return table;
+}
+
+public static JComboBox createStyledComboBox() {
+	JComboBox comboBox = new JComboBox();
+	return comboBox;
+}
+
 public static class SmoothLabel extends JLabel {
 	public SmoothLabel(String text) {
 		super(text);

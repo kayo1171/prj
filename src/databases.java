@@ -36,18 +36,31 @@ public databases() {
 	SmoothLabel searchLabel = new SmoothLabel("search:");
 	searchLabel.setFont(new Font("Sans-Serif", Font.PLAIN, 24));
 
-//	table = createStyledJTable();
+	table = createStyledJTable();
 	searchField = createStyledTextField();
 	homeButton = makeCustomButton("home");
 	deleteButton = makeCustomButton("delete");
 	editButton = makeCustomButton("edit");
 	makeAppointmentButton = makeCustomButton("make appointment");
-//	colComboBox = createStyledComboBox();
+	colComboBox = createStyledComboBox();
 
 
 	panel.add(Box.createVerticalGlue());
 	panel.add(topLabel);
 	panel.add(Box.createRigidArea(new Dimension(0, 30)));
+
+
+//	public static JPanel createInputRow(JLabel label, JTextField field) {
+//		JPanel row = new JPanel();
+//		row.setLayout(new BoxLayout(row, BoxLayout.X_AXIS));
+//		row.setOpaque(false);
+//		label.setPreferredSize(new Dimension(120, 40));
+//		row.add(label);
+//		row.add(Box.createRigidArea(new Dimension(20, 0)));
+//		row.add(field);
+//		return row;
+//	}
+
 
 
 	setTitle("databases");
