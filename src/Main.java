@@ -1,12 +1,15 @@
 public class Main {
 public static void main(String[] args) {
 	new welcome();
-//        new login();
-//        new register();
-//        new databases();
 }
 }
 
 // things to showcase
-// register
-// login
+// register - errors
+// login - errors
+// sort/combobox
+// search
+// adding
+// deleting
+// editing
+// errors on all
